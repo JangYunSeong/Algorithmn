@@ -1,26 +1,24 @@
 start = input()
 complete = input()
 size = len(complete)
-newArray = ""
-answer = 0
+array = []
+answer = -1
+for i in range(0,size):
+    array.append(complete[i])
 while(1):
-    k = len(complete) - 1
-    print(complete)
-    print(k)
-    if(start == complete):
+    pivot = len(array) - 1
+    if(pivot < 0):
+        answer = 0
+        break
+    if(array[pivot] == 'A'):
+        del array[pivot]
+    else:
+        del array[pivot]
+        array.reverse()
+    test = ""
+    for j in range(0,len(array)):
+        test += array[j]
+    if(test == start):
         answer = 1
         break
-    if(k <= 0):
-        break
-    if(complete[k] == "A"):
-        complete = complete[0:k -1]
-    elif(complete[k] == "B"):
-        complete = complete[0:k -1]
-        for i in range(len(complete)-1, -1, -1):
-            newArray += complete[i]
-        complete = ""
-        complete += newArray
-        print(newArray)
-        newArray = ""
 print(answer)
-    
